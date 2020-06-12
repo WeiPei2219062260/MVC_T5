@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+    <script src="~/Jquery/jquery.js"></script>
+    <script src="~/Jquery/additional-methods.js"></script>
+    <script src="~/Jquery/jquery.validate.js"></script>
+</head>
+<body>
+    <div>
+        <form>
+            <p>用户名：</p><input type="text" name="UserId" id="UserId" />
+            <p>密码：</p><><input type="text" name="UserPwd" id="UserPwd" />
+            <p>密码：</p><><input type="text" name="UserPwd1" id="UserPwd1" />
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("form").validate({
+                rules: {
+                    UserId: { required: true },
+                    UserPwd: { required: true },
+                    UserPwd1: { required: true, equalTo: "#UserPwd" }
+                }, messages: {
+                    UserId: { required: "<span style='color:red'>请输入账号</span>" },
+                    UserPwd: { required: "<span style='color:red'>请输入密码</span>" },
+                    UserPwd1: { required: "<span style='color:red'>密码不相同！</span>" }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
